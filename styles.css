@@ -87,4 +87,30 @@ button#clear-form:hover {
   background-color: #d32f2f;
 }
 
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #b88181;
+  color: white;
+  border-radius: 8px;
+  position: relative;
+}
 
+.icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    transition: transform 0.3s;
+    margin-top: 10px;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -22,12 +22,14 @@
             <h1>Controle de Componentes</h1>
         </header>
         <div id="component-form">
-            <input type="text" class="component-description" id="componente" placeholder="Digite o nome do componente" required>
-            <input type="number" class="component-description" id="sn__componente" placeholder="Digite o SN do componente" required>
-            <input type="number" class="component-description" id="sn__removido" placeholder="Digite o SN da parte que foi removido"
+            <input type="text" class="component-description" id="componente" placeholder="Digite o nome do componente"
                 required>
-            <input type="number" class="component-description" id="sn__instalado" placeholder="Digite o SN da parte que foi instalada"
-                required>
+            <input type="number" class="component-description" id="sn__componente"
+                placeholder="Digite o SN do componente" required>
+            <input type="number" class="component-description" id="sn__removido"
+                placeholder="Digite o SN da parte que foi removido" required>
+            <input type="number" class="component-description" id="sn__instalado"
+                placeholder="Digite o SN da parte que foi instalada" required>
             <textarea name="text" rows="4" cols="50" class="component-description" id="observacao"
                 placeholder="Coloque aqui alguma observação que ache necessário, como o numero da OS."></textarea>
             <input type="date" class="component-description" id="component-date" required>
@@ -37,8 +39,14 @@
             </div>
         </div>
         <div id="component-list"></div>
-
     </main>
+    <footer class="footer">
+        <p> &copy;2025 | Dev Cleilson | Todos direitos reservados.</p>
+        <div class="social-icons">
+        <a href="https://github.com/"><img src="image/icons8-github-30.png" alt="icone do github" class="icon"></a>
+        <a href="https://www.linkedin.com/feed/"><img src="image/icons8-linkedin-30.png" alt="icone do linkedin"class="icon"></a>
+    </div>
+    </footer>
     <script src="script.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
