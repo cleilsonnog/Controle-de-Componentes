@@ -1,9 +1,11 @@
+let bancoDeDados = "https://cleilson.app.n8n.cloud/webhook/294dc972-15b3-4cdb-895c-fe1d851adf1f"
+
 document.addEventListener('DOMContentLoaded', () => {
     const botaoEnviar = document.getElementById("submit-button");
     const botaoCancelar = document.getElementById("clear-form");
 
     if (botaoEnviar) {
-        botaoEnviar.addEventListener("click", function(event) {
+        botaoEnviar.addEventListener("click", function (event) {
             event.preventDefault(); // Impede o envio do formulário
 
             // Pega os valores dos campos no momento do clique
@@ -29,11 +31,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 observacao: observacao,
                 data: data
             };
-            
-            //componente = JSON.stringify(componente);
+
+            fetch(bancoDeDados, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(componente)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erro ao adicionar componente");
+                    }
+                    return response.json();
+                })
+                //.then(data => {
+                //    console.log("Componente adicionado:", data);
+                //    alert("Componente adicionado com sucesso!");
+                //})
+                .catch(error => {
+                    console.error("Erro:", error);
+                    alert("Erro ao adicionar componente.");
+                });
 
             console.log("dados do componente:", componente);
-            alert("Componente adicionado com sucesso!");
+
+
+            //alert("Componente adicionado com sucesso!");
+            Toastify({
+                text: "Componente adicionado com sucesso!",
+                className: "info",
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                }
+            }).showToast();
+
+
+
             // Limpa os campos do formulário
             document.getElementById("componente").value = '';
             document.getElementById("sn__componente").value = '';
@@ -45,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (botaoCancelar) {
-        botaoCancelar.addEventListener("click", function() {
+        botaoCancelar.addEventListener("click", function () {
             // Limpa os campos do formulário
             document.getElementById("componente").value = '';
             document.getElementById("sn__componente").value = '';
